@@ -140,7 +140,7 @@ p {
 .carousel-container {
     position: relative;
     width: 100%;
-    height: 650px;
+    height: 800px;
     max-width: 600px; /* Largura máxima do carrossel */
     margin: 30px auto;
     overflow: hidden;
@@ -157,7 +157,7 @@ p {
 .carousel-track img {
     width: 100%;
     min-width: 100%; /* Garante que a imagem ocupe 100% da largura do contêiner */
-    height: 110%;
+    height: 100%;
     display: block;
     object-fit: contain; /* Garante que a imagem caiba no espaço sem cortar, mas pode deixar barras vazias */
     /* Se quiser cobrir o espaço, use 'cover' mas pode cortar a imagem */
