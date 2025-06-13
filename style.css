@@ -188,6 +188,13 @@ p {
     height: 100%;
 }
 
+.carousel-track :nth-child(7){
+    height: 100%;
+ 
+}.carousel-track :nth-child(8){
+    height: 100%;
+ 
+}
 .carousel-button {
     position: absolute;
     top: 50%;
