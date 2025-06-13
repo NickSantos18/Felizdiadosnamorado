@@ -1,0 +1,451 @@
+/* Importação de fontes do Google Fonts (se você usar outras) */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Parisienne&family=Open+Sans:wght@300;400;700&display=swap');
+
+/* Variáveis CSS para cores e fontes */
+:root {
+    --primary-red: #E74C3C; /* Vermelho vibrante */
+    --light-pink: #FADBD8; /* Rosa claro */
+    --dark-pink: #CB436D; /* Rosa escuro */
+    --light-grey: #f4f4f4;
+    --dark-text: #333;
+    --white: #fff;
+    --gold: #FFD700; /* Dourado para detalhes */
+
+    --font-heading: 'Dancing Script', cursive;
+    --font-cursive: 'Parisienne', cursive;
+    --font-body: 'Open Sans', sans-serif;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-body);
+    background: linear-gradient(to bottom right, var(--light-pink), var(--primary-red));
+    color: var(--dark-text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ocupa a altura total da viewport */
+    overflow: hidden; /* Esconde barras de rolagem desnecessárias */
+}
+
+/* Estilo geral das telas */
+.screen {
+    width: 100%;
+    max-width: 800px;
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    position: absolute; /* Para sobrepor as telas */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0;
+    pointer-events: none; /* Desabilita interações quando invisível */
+    box-sizing: border-box; /* Inclui padding e border no width/height */
+}
+
+.screen.active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    pointer-events: auto; /* Habilita interações quando ativo */
+    z-index: 10; /* Garante que a tela ativa esteja por cima */
+}
+
+.content-wrapper {
+    padding: 20px;
+}
+
+h1, h2 {
+    font-family: var(--font-heading);
+    color: var(--dark-pink);
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+h1 {
+    font-size: 3em;
+}
+
+h2 {
+    font-size: 2.2em;
+}
+
+p {
+    font-size: 1.1em;
+    color: #555;
+}
+
+/* Botões com tema de Dia dos Namorados */
+.valentine-button {
+    background-color: var(--primary-red);
+    color: var(--white);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 1.3em;
+    font-family: var(--font-body);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    letter-spacing: 0.5px;
+}
+
+.valentine-button:hover {
+    background-color: #C0392B; /* Tom mais escuro de vermelho */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.valentine-button:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo do Menu Principal */
+.main-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaço entre os botões */
+}
+
+.main-menu ul li button {
+    width: 100%;
+    padding: 15px 25px;
+    background-color: var(--dark-pink);
+    color: var(--white);
+    border: none;
+    border-radius: 25px;
+    font-size: 1.2em;
+    font-family: var(--font-body);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.main-menu ul li button:hover {
+    background-color: #A6305D; /* Tom mais escuro de rosa */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Carrossel de Imagens */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 800px;
+    max-width: 600px; /* Largura máxima do carrossel */
+    margin: 30px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background-color: #ffe0e6; /* Fundo suave para o carrossel */
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-track img {
+    width: 100%;
+    min-width: 100%; /* Garante que a imagem ocupe 100% da largura do contêiner */
+    height: 100%;
+    display: block;
+    object-fit: contain; /* Garante que a imagem caiba no espaço sem cortar, mas pode deixar barras vazias */
+    /* Se quiser cobrir o espaço, use 'cover' mas pode cortar a imagem */
+    /* object-fit: cover; height: 350px; (exemplo) */
+}
+
+.carousel-track :nth-child(5){
+    height: 150%;
+ 
+}
+.carousel-track :nth-child(6){
+    height: 150%;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(231, 76, 60, 0.8); /* Vermelho com transparência */
+    color: var(--white);
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.5em;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 1;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-button.prev {
+    left: 10px;
+}
+
+.carousel-button.next {
+    right: 10px;
+}
+
+.carousel-button:hover {
+    background-color: var(--primary-red);
+}
+
+/* Estilo da Carta */
+.letter-wrapper {
+    background-color: #fff9f9; /* Papel de carta mais claro */
+    border: 2px solid var(--light-pink);
+    border-radius: 10px;
+    padding: 30px;
+    margin-top: 20px;
+    text-align: left;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+    height: 800px;
+}
+
+.letter-content p {
+    font-family: var(--font-cursive); /* Fonte manuscrita para a carta */
+    font-size: 1.6em;
+    line-height: 1.8;
+    margin-bottom: 1px;
+    color: #4A235A; /* Um roxo suave */
+}
+
+.letter-content .signature {
+    font-weight: bold;
+    text-align: right;
+    margin-top: 30px;
+}
+
+.letter-content .date {
+    font-size: 0.9em;
+    text-align: right;
+    color: #777;
+    margin-top: 5px;
+}
+
+/* Estilo do Vídeo */
+.video-container {
+    margin: 30px auto;
+    max-width: 640px; /* Largura padrão para vídeos 16:9 */
+    background-color: #000;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.video-container video {
+    width: 100%;
+    height: 800px;
+    display: block;
+}
+
+/* Animação Dia dos Namorados */
+.valentine-animation {
+    margin-top: 30px;
+    position: relative;
+    width: 100%;
+    height: 500px; /* Altura para a animação */
+    display: flex;
+    flex-direction: column ;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #ffe6f2; /* Fundo suave para a animação */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.heart {
+    width: 100px;
+    height: 100px;
+    background-color: var(--primary-red);
+    position: relative;
+    transform: rotate(-45deg);
+    animation: pulse 1.5s infinite ease-in-out;
+    box-shadow: 0 0 20px rgba(231, 76, 60, 0.5);
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    width: 100px;
+    height: 100px;
+    background-color: var(--primary-red);
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart::before {
+    top: -50px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: 50px;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1) rotate(-45deg); }
+    50% { transform: scale(1.1) rotate(-45deg); }
+    100% { transform: scale(1) rotate(-45deg); }
+}
+
+.balloon {
+    position: absolute;
+    font-size: 2em;
+    opacity: 0;
+    animation: floatUp 6s infinite ease-out;
+    pointer-events: none;
+}
+
+.balloon-1 {
+    left: 10%;
+    animation-delay: 0s;
+    color: var(--primary-red);
+}
+.balloon-2 {
+    left: 40%;
+    animation-delay: 2s;
+    color: var(--dark-pink);
+}
+.balloon-3 {
+    left: 70%;
+    animation-delay: 4s;
+    color: #FFC0CB; /* Rosa bebê */
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-350px) scale(0.5);
+        opacity: 0;
+    }
+}
+
+.animation-text {
+    font-family: var(--font-cursive);
+    font-size: 2.5em;
+    color: var(--dark-pink);
+    margin-top: 50px; /* Ajuste para não sobrepor o coração */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    animation: fadeInScale 2s forwards;
+    animation-delay: 1s; /* Atraso para aparecer depois do coração */
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+@keyframes fadeInScale {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5em;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    .valentine-button, .main-menu ul li button {
+        font-size: 1.1em;
+        padding: 12px 25px;
+    }
+    .screen {
+        width: 95%;
+        padding: 20px;
+    }
+    .letter-content p {
+        font-size: 1.2em;
+    }
+    .carousel-container {
+        max-width: 100%;
+    }
+    .video-container {
+        max-width: 100%;
+    }
+    .heart {
+        width: 80px;
+        height: 80px;
+    }
+    .heart::before, .heart::after {
+        width: 80px;
+        height: 80px;
+    }
+    .heart::before {
+        top: -40px;
+    }
+    .heart::after {
+        left: 40px;
+    }
+    .animation-text {
+        font-size: 2em;
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2em;
+    }
+    h2 {
+        font-size: 1.5em;
+    }
+    .valentine-button, .main-menu ul li button {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+    .screen {
+        padding: 15px;
+    }
+    .letter-content p {
+        font-size: 1em;
+    }
+    .main-menu ul {
+        gap: 10px;
+    }
+    .carousel-button {
+        padding: 8px 12px;
+        font-size: 1.2em;
+    }
+    .heart {
+        width: 60px;
+        height: 60px;
+    }
+    .heart::before, .heart::after {
+        width: 60px;
+        height: 60px;
+    }
+    .heart::before {
+        top: -30px;
+    }
+    .heart::after {
+        left: 30px;
+    }
+    .animation-text {
+        font-size: 1.5em;
+        margin-top: 20px;
+    }
+}

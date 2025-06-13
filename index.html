@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Dia dos Namorados! ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cod.js">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Parisienne&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <section id="tela-inicial" class="screen active">
+        <div class="content-wrapper">
+            <h1>Para tu mon amour!</h1>
+            <button id="btn-entrar" class="valentine-button">Clique Aqui!</button>
+        </div>
+    </section>
+
+    <section id="tela-menu" class="screen">
+        <div class="content-wrapper">
+            <h2>Escolha uma surpresa:</h2>
+            <nav class="main-menu">
+                <ul>
+                    <li><button data-target="tela-opcao1">Nossos Momentos</button></li>
+                    <li><button data-target="tela-opcao2">Cartinha</button></li>
+                    <li><button data-target="tela-opcao3">Vídeo</button></li>
+                    <li><button data-target="tela-opcao4">Surprise</button></li>
+                </ul>
+            </nav>
+           
+        </div>
+    </section>
+
+    <section id="tela-opcao1" class="screen">
+        <div class="content-wrapper">
+            <h2>Momentos Inesquecíveis</h2>
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <img src="img1.jpeg" alt="Momento 1">
+                    <img src="img2.jpeg" alt="Momento 2">
+                    <img src="img4.jpeg" alt="Momento 3">
+                    <img src="img3.jpeg" alt="Momento 4">
+                    <img src="img5.jpeg" alt="Momento 5">
+                    <img src="img6.jpeg" alt="Momento 6">
+                    <img src="img7.jpeg" alt="Momento 7">
+                    <img src="img8.jpeg" alt="Momento 8">
+                </div>
+                <button class="carousel-button prev">&lt;</button>
+                <button class="carousel-button next">&gt;</button>
+            </div>
+            <button class="btn-voltar-menu valentine-button">Voltar ao Menu</button>
+        </div>
+    </section>
+
+    <section id="tela-opcao2" class="screen">
+        <div class="content-wrapper letter-wrapper">
+            <h2>Uma Carta do Coração ❤️</h2>
+            <div class="letter-content">
+                <p>Mon amour,</p>
+                <p>Neste Dia dos Namorados, quero te lembrar o quanto você é especial para mim. Cada momento ao seu lado é um presente, cada risada, cada abraço, cada beijo.</p>
+                <p>Sua presença ilumina meus dias e seu amor me impulsiona a ser uma pessoa melhor. Sou grato por ter você na minha vida, por sua paciência, seu carinho e por cada pequena coisa que você faz.</p>
+                <p>Que nosso amor continue crescendo e florescendo a cada dia. Você é minha melhor amiga, e o grande amor da minha vida.</p>
+                <p>Eu te amo MINHA princesa!!</p>
+                <p class="signature">Nicks</p>
+                <p class="date">12/06/2025</p>
+            </div>
+            <button class="btn-voltar-menu valentine-button">Voltar ao Menu</button>
+        </div>
+    </section>
+
+    <section id="tela-opcao3" class="screen">
+        <div class="content-wrapper">
+            <h2>Nosso Vídeo Especial!</h2>
+            <div class="video-container">
+                <video controls preload="metadata" poster="images/video-placeholder.jpg">
+                    <source src="vid.mp4" type="video/mp4">
+                    Seu navegador não suporta o elemento de vídeo.
+                </video>
+                <p>Espero que goste desta compilação dos nossos momentos!</p>
+            </div>
+            <button class="btn-voltar-menu valentine-button">Voltar ao Menu</button>
+        </div>
+    </section>
+
+    <section id="tela-opcao4" class="screen">
+        <div class="content-wrapper">
+            <h2>Feito com Amor para Você!</h2>
+            <div class="valentine-animation">
+                <div class="heart"></div>
+                <div class="balloon balloon-1">❤️</div>
+                <div class="balloon balloon-2">💖</div>
+                <div class="balloon balloon-3">💕</div>
+                <p class="animation-text">Feliz Dia dos Namorados, meu amor!</p>
+            </div>
+            <button class="btn-voltar-menu valentine-button">Voltar ao Menu</button>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
